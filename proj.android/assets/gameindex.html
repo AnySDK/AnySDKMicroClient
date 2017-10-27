@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>  
+<html lang="en">  
+<head>  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>游戏页面</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head> 
+
+<body>  
+  
+<div class="container">  
+    <button type="button" class="btn btn-success btn-block" style="margin-top:20px;" onclick="login();">调用登录</button>
+
+	<button type="button" class="btn btn-info btn-block" style="margin-top:20px;" onclick="pay();">调用支付</button>
+    
+    <div class="alert alert-warning" style="margin-top:20px;" role="alert" id="message"></div>
+    
+    <div class="input-group" style="margin-top:100px;">
+      <input type="text" class="form-control" placeholder="http://你的游戏地址..." id="inpUrl">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" onclick="window.location.href=inpUrl.value;">Go!</button>
+      </span>
+    </div>
+</div>  
+  
+<script type="text/javascript">
+	function login() {
+		window.gameshell.login();
+	}
+	
+    function loginResult(nArg0, sArg1) {
+        switch (nArg0) {
+            case 0:// 初始化SDK成功回调
+                $("#message").text("初始化SDK成功");
+                break;
+            case 1:// 初始化SDK失败回调
+                $("#message").text("初始化SDK失败");
+                break;
+            case 2:// 登陆成功回调
+                $("#message").text("登陆成功");
+                break;
+            case 3:// 登陆失败回调
+            case 4:// 登陆失败回调
+            case 5:// 登陆失败回调
+            case 6:// 登陆取消回调
+                $("#message").text("登陆失败");
+                break;
+            case 7:// 登出成功回调
+                break;
+            case 8:// 登出失败回调
+                $("#message").text("登出失败");
+                break;
+            case 9:// 平台中心进入回调
+                break;
+            case 10:// 平台中心退出回调
+                break;
+            case 11:// 暂停界面回调
+                break;
+            case 12:// 退出游戏回调
+                break;
+            case 13:// 防沉迷查询回调
+                $("#message").text("防沉迷查询回调");
+                break;
+            case 14:// 实名注册回调
+                $("#message").text("实名注册回调");
+                break;
+            case 15:// 切换账号成功回调
+                break;
+            case 16:// 切换账号失败回调
+                break;
+            case 17:// 打开游戏商店回调
+                break;
+            default:
+                break;
+        }
+    }
+    
+    function pay() {
+		window.gameshell.pay();
+    }
+    
+    function payResult(nArg0, sArg1) {
+        switch (nArg0) {
+            case 0:// 支付成功回调
+                $("#message").text("支付成功");
+                break;
+            case 1:// 支付失败回调
+                $("#message").text("支付失败");
+                break;
+            case 2:// 支付取消回调
+                $("#message").text("支付取消");
+                break;
+            case 3:// 支付超时回调
+                $("#message").text("支付超时");
+                break;
+            case 4:// 支付超时回调
+                $("#message").text("支付超时");
+                break;
+            case 6:// 支付初始化失败回调
+                break;
+            case 5:// 支付初始化成功回调
+                break;
+            /**
+             * 新增加:正在进行中回调 支付过程中若SDK没有回调结果，就认为支付正在进行中
+             * 游戏开发商可让玩家去判断是否需要等待，若不等待则进行下一次的支付
+             */
+            case 7:
+                $("#message").text("支付等待SDK回调中");
+                break;
+            case 8:// 充值成功回调
+                $("#message").text("充值成功");
+                break;
+            default:
+            break;
+        }
+    }
+</script>  
+  
+</body>  
+</html>  
