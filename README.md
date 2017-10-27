@@ -9,4 +9,3 @@
 因此，你只需要把微端 `AnyController.java` 中 appKey 等参数替换成你自己申请到的AnySDK参数、游戏地址替换成你自己的 H5 游戏地址，并在你的 H5 游戏页面中适当参考 `gameindex.html` 实现登录和支付的调用即可。
 
 然后将这个微端放到 AnySDK 打包工具 进行打包（请参考《[客户端使用手册](http://docs.anysdk.com/tool-using/package-tool/)》），即可快速生成用于上线各大渠道的渠道包。
-
