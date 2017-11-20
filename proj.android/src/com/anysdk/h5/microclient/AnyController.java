@@ -7,7 +7,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 import android.widget.Toast;
 
 import com.anysdk.framework.IAPWrapper;
